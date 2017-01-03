@@ -8,6 +8,20 @@ import Manual_Model_Creation
 dir_path = os.path.dirname(os.path.realpath(__file__))
 config_txt_path = dir_path + '/list_of_runs.p'
 
+
+
+
+
+
+
+auto_load = True
+
+
+
+
+
+
+
 ### DEFAULTS CHANGE IF YOU WANT TO MAKE RUNS QUICKLY THROUGH THE MENU
 
 DEFAULT_IMAGE_LOCATION = str(dir_path)      +'/Images'     #Change to an absolute path if Image Directory is not located within Build_Folder
@@ -17,6 +31,7 @@ DEFAULT_EXPORT_LOCATION = str(dir_path)
 
 
 def create_model(name):
+
     new_model = {}
     new_model['name'] = name
 
@@ -201,8 +216,13 @@ def input_loop(path):
 
 
 #Make sure we can find images
-
-
+if auto_load == True:
+    print("Building from manual model creation")
+    file = pickle.dump([], open(config_txt_path, "wb"))
+    model_list = []
+    model_list = Manual_Model_Creation.add_manually(model_list, dir_path)
+    pickle.dump(model_list, open('list_of_runs.p', "wb"))
+    Train_Models(model_list)
 
 
 if os.path.exists(config_txt_path):
