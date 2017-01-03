@@ -16,7 +16,10 @@ from tensorflow.contrib.session_bundle import exporter
 import sys
 import Manual_Model_Creation
 import pickle
-
+import sys
+import select
+import tty
+import termios
 
 class CNNcls(object):
 
@@ -267,8 +270,9 @@ class CNNcls(object):
 
 
     def run_batch(self):  # ensure you have defined global variables num_iters and files_training and batch_size
+        nbc = NonBlockingConsole()
         for i in range(self.num_iters):
-            if i < 100 or i %100 == 0:
+            if i < 20 or i %100 == 0:
                 print(i)
                 print("Creating batches")
                 print(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
@@ -276,15 +280,18 @@ class CNNcls(object):
             batch_x, batch_y = self.create_training_batch(self.files_training, self.batch_size)
             if i in [1, 10, 20, 50, 100, 200, 500, 1000, 2000, 3000, 4000, 5000, 10000]:
                 print(i)
+
                 # print_test_accuracy(testing_images1, testing_labels1)
             if self.dropout == 'True':
                  feed_dict_train = {self.x_image: batch_x, self.y_true: batch_y,self.keep_prob: 0.5}
             else:
                  feed_dict_train = {self.x_image: batch_x, self.y_true: batch_y}
-            if i < 100 or i %100 == 0:
+            if i < 20 or i %100 == 0:
                 print(i)
                 print("running training run")
-            
+            if nbc.get_data() == '/x1b':
+                print("stopping model training early")
+                break
             
             self.session.run(self.optimizer, feed_dict=feed_dict_train)
 
@@ -717,3 +724,20 @@ class CNNcls(object):
         label_array = label_array.reshape(test_size, 2)
         return image_array, label_array
 
+
+
+class NonBlockingConsole(object):
+
+    def __enter__(self):
+        self.old_settings = termios.tcgetattr(sys.stdin)
+        tty.setcbreak(sys.stdin.fileno())
+        return self
+
+    def __exit__(self, type, value, traceback):
+        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, self.old_settings)
+
+
+    def get_data(self):
+        if select.select([sys.stdin], [], [], 0) == ([sys.stdin], [], []):
+            return sys.stdin.read(1)
+        return False
