@@ -2,7 +2,9 @@ import os.path
 import pickle
 import os
 import sys
-
+import draw_convert
+import CNNcls
+import Manual_Model_Creation
 dir_path = os.path.dirname(os.path.realpath(__file__))
 config_txt_path = dir_path + '/list_of_runs.p'
 
@@ -12,27 +14,6 @@ DEFAULT_IMAGE_LOCATION = str(dir_path)      +'/Images'     #Change to an absolut
 DEFAULT_EXPORT_LOCATION = str(dir_path)
 
 
-### ADD RUNS HERE IF YOU PREFER AND THEN LAUNCH MENU AND PRESS M
-def add_manually(run_params):
-    new_model = {
-
-        # New Directory notation
-        'Image_Dataset_Path': str(dir_path) + "/Images",
-        'Build_Directory': str(dir_path),
-        'name': 'test',
-        'box_size': "240",
-        'batch_size': '100',
-        'test_size': '500',
-        'num_iters': '5',
-
-
-    }
-    con_layers = [(5,25),(5,25)]
-    fcl_layers = [1000,600]
-    new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
-    run_params.append(new_model)
-
-    return run_params
 
 
 def create_model(name):
@@ -101,6 +82,8 @@ def create_layers(con_params=[],fcl_params=[]):
         new_con_layer = {}
         num_con_layers = len(con_params)
         while c < num_con_layers:
+            new_con_layer = {}
+            print("adding c_layer " + str(con_params[c]))
             new_con_layer['filter_dim']  = con_params[c][0]
             new_con_layer['num_filters'] = con_params[c][1]
             con_layers.append(new_con_layer)
@@ -143,10 +126,10 @@ def create_layers(con_params=[],fcl_params=[]):
             
 def Train_Models(list_of_runs):
     print('Loading Params')
-    run_params = pickle.load(open('list_of_runs.p', "rb"))
+    run_params = list_of_runs
     for items in run_params:
-        print('Running Model ' + str(items['name']))
-        CNN_Model_Experimental.run_model(items)
+        model = CNNcls.CNNcls(run_params=items)
+        model.train_model()
 
 def input_loop(path):
     exit_flag = False
@@ -177,7 +160,7 @@ def input_loop(path):
 
        
         if user_input == 'M':
-            model_list = add_manually(model_list)
+            model_list = Manual_Model_Creation.add_manually(model_list,dir_path)
             
         if user_input == '6':
             Train_Models(model_list)
@@ -192,7 +175,11 @@ def input_loop(path):
                     print()
                     for k, v in d.items():
                         print(k, '-->', v)
-            input('Press Enter to Return to the menu')
+            graphical = input("Press 'S' to see the models graphically, or press Enter to return to menu: ")
+            if graphical in ['S','s']:
+              print("Launching Ipython to Show Graphs")          
+              for model in model_list:             
+                 draw_convert.draw_from_model_params(model)           
 
         if user_input == '2':
             name = input("Name of model:   ")
@@ -257,3 +244,6 @@ else:
 
 
 
+def get_build_directory():
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    return dir_path
