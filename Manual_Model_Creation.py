@@ -2,37 +2,14 @@
 
 
 
-#The Default model, adds a single model to the list of run_params
-### To be done later, refactor run_params to list_model_params
-
-def get_default_model_settings(run_params,dir_path):
-    new_model = {
-
-        # New Directory notation
-        'Image_Dataset_Path': str(dir_path) + "/Images",
-        'Build_Directory': str(dir_path),
-        'name': 'test',
-        'box_size': "240",
-        'batch_size': '100',
-        'test_size': '500',
-        'num_iters': '5000',
-        'MS': 'True'
-
-    }
-    con_layers = [(5,11),(12,25)]
-    fcl_layers = [1000,600]
-    print("adding model param " + str(new_model))
-    new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
-    run_params.append(new_model)
-    
-    return run_params
-    
 #### Add multiple models using this function
 
 def add_manually(run_params,dir_path):
     #To create multiple models cut the code bewlo
-    
+    #M1
     #COPY FROM HERE
+    
+    #M1
     new_model = {
 
         # New Directory notation
@@ -52,6 +29,8 @@ def add_manually(run_params,dir_path):
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
     run_params.append(new_model)
     # TO HERE
+    
+    #M2
     new_model = {
 
         # New Directory notation
@@ -70,7 +49,8 @@ def add_manually(run_params,dir_path):
     print("adding model param " + str(new_model))
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
     run_params.append(new_model)
-    # TO HERE
+
+#   #M3
     new_model = {
 
         # New Directory notation
@@ -89,10 +69,9 @@ def add_manually(run_params,dir_path):
     print("adding model param " + str(new_model))
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
     run_params.append(new_model)
-    # TO HERE
    
     
-    
+    #End
     input("Press Enter to continue")
     return run_params
 
@@ -155,6 +134,32 @@ def create_layers(con_params=[],fcl_params=[]):
     layers['conv_layers'] = con_layers
     layers['fcl_layers']  = fcl_layers
     return layers
+
+
+# The Default model, adds a single model to the list of run_params
+### To be done later, refactor run_params to list_model_params
+
+def get_default_model_settings(run_params, dir_path):
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test',
+        'box_size': "240",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True'
+
+    }
+    con_layers = [(5, 11), (12, 25)]
+    fcl_layers = [1000, 600]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    return run_params
 
 
 def get_build_directory():
