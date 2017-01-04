@@ -16,7 +16,7 @@ def add_manually(run_params,dir_path):
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
         'name': 'test4',
-        'box_size': "60",
+        'box_size': "120",
         'batch_size': '100',
         'test_size': '500',
         'num_iters': '5000',
@@ -38,7 +38,7 @@ def add_manually(run_params,dir_path):
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
         'name': 'test5',
-        'box_size': "60",
+        'box_size': "120",
         'batch_size': '100',
         'test_size': '500',
         'num_iters': '5000',
@@ -58,7 +58,7 @@ def add_manually(run_params,dir_path):
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
         'name': 'test6',
-        'box_size': "60",
+        'box_size': "120",
         'batch_size': '100',
         'test_size': '500',
         'num_iters': '5000',
@@ -77,7 +77,7 @@ def add_manually(run_params,dir_path):
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
         'name': 'test7',
-        'box_size': "60",
+        'box_size': "120",
         'batch_size': '100',
         'test_size': '500',
         'num_iters': '5000',
@@ -97,15 +97,15 @@ def add_manually(run_params,dir_path):
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
         'name': 'test7',
-        'box_size': "60",
-        'batch_size': '1000',
-        'test_size': '500',
+        'box_size': "120",
+        'batch_size': '100',
+        'test_size': '5000',
         'num_iters': '500',
         'MS': 'True',
         'dropout': 'True'
     }
     con_layers = [(5,9),(9,25)]
-    fcl_layers = [10000,6000,2000,600]
+    fcl_layers = [1000,6000,2000,600]
     print("adding model param " + str(new_model))
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
     run_params.append(new_model)
