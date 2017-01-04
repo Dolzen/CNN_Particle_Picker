@@ -20,6 +20,12 @@ import sys
 import select
 import tty
 import termios
+import time
+from time import gmtime
+from time import strftime
+import datetime
+from datetime import timedelta
+FMT = '%H:%M:%S'
 
 class CNNcls(object):
 
@@ -254,7 +260,16 @@ class CNNcls(object):
         
         #############THIS BEGINS THE TRAINING ################
         print("Beginnning Model Training")
+        s1 = strftime("%H:%M:%S", gmtime())
+        print(s1)
         self.run_batch()
+        s2 = strftime("%H:%M:%S", gmtime())
+        tdelta = datetime.datetime.strptime(s2, FMT) - datetime.datetime.strptime(s1, FMT)
+        if tdelta.days < 0:
+            tdelta = timedelta(days=0,
+                               seconds=tdelta.seconds, microseconds=tdelta.microseconds)
+        print(tdelta)
+
         ########### SAVE MODEL ###########
         save_path = saver.save(self.session, self.save_model_path + ".ckpt")
         print("Model saved in file: %s" % save_path)
@@ -265,7 +280,7 @@ class CNNcls(object):
         acc = self.print_test_accuracy(self.testing_images1, self.testing_labels1)
         acc2 = self.print_test_accuracy(self.testing_images2, self.testing_labels2)
         # print_test_accuracy(testing_images3, testing_labels3)
-        file = pickle.dump([acc,acc2], open(self.save_model_path + 'accuracy.p', "wb"))
+        file = pickle.dump([acc,acc2,tdelta], open(self.save_model_path + 'accuracy.p', "wb"))
         self.session.close()
 
 
