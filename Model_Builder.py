@@ -65,6 +65,7 @@ def create_model(name):
     new_model['box_size']   = input("Box Size or resolution of input images: ")
     new_model['batch_size'] = input("Training Batch Size: ")
     new_model['test_size']  = input("Testing Batch Size: ")
+    new_model['dropout'] = input("True")
 
     ## LAYER CREATION ###
     for i in range(50):
