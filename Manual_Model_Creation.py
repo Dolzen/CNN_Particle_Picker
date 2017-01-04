@@ -15,7 +15,7 @@ def add_manually(run_params,dir_path):
         # New Directory notation
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
-        'name': 'test4',
+        'name': 'test4_120',
         'box_size': "120",
         'batch_size': '100',
         'test_size': '500',
@@ -37,7 +37,7 @@ def add_manually(run_params,dir_path):
         # New Directory notation
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
-        'name': 'test5',
+        'name': 'test5_120',
         'box_size': "120",
         'batch_size': '100',
         'test_size': '500',
@@ -57,7 +57,7 @@ def add_manually(run_params,dir_path):
         # New Directory notation
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
-        'name': 'test6',
+        'name': 'test6_120',
         'box_size': "120",
         'batch_size': '100',
         'test_size': '500',
@@ -76,7 +76,7 @@ def add_manually(run_params,dir_path):
         # New Directory notation
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
-        'name': 'test7',
+        'name': 'test7_120',
         'box_size': "120",
         'batch_size': '100',
         'test_size': '500',
@@ -96,7 +96,7 @@ def add_manually(run_params,dir_path):
         # New Directory notation
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
-        'name': 'test7',
+        'name': 'test8_120',
         'box_size': "120",
         'batch_size': '100',
         'test_size': '5000',
