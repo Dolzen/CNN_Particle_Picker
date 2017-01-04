@@ -47,7 +47,10 @@ class CNNcls(object):
         self.input_num_channels = 1  # initial input images are greyscale
         self.num_classes = 2  # Only have 2 classifications, good and bad
         self.text_record = []  # Benchmarking List
-        self.dropout = 'f'
+        if 'dropout' in run_parameters.keys():
+            self.dropout = run_parameters['dropout']
+        else:
+            self.dropout = 'f'
 
         ##### INITIZIALIZE MODEL PARAMETERS ####
 
@@ -280,7 +283,7 @@ class CNNcls(object):
         acc = self.print_test_accuracy(self.testing_images1, self.testing_labels1)
         acc2 = self.print_test_accuracy(self.testing_images2, self.testing_labels2)
         # print_test_accuracy(testing_images3, testing_labels3)
-        file = pickle.dump([acc,acc2,tdelta], open(self.save_model_path + 'training_stats.p', "wb"))
+        file = pickle.dump([acc,acc2,tdelta], open(self.save_model_path + 'accuracy.p', "wb"))
         self.session.close()
 
 
