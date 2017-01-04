@@ -24,7 +24,7 @@ def add_manually(run_params,dir_path):
         'dropout': 'True'
 
     }
-    con_layers = [(5,9),(10,25)(20,11),(5,11)]
+    con_layers = [(5,9),(10,25),(20,11),(5,11)]
     fcl_layers = [1000,600,600,600,600,600,600]
     print("adding model param " + str(new_model))
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
@@ -45,7 +45,7 @@ def add_manually(run_params,dir_path):
         'MS': 'True',
         'dropout': 'False'
     }
-    con_layers = [(5,9),(10,25)(20,11),(5,11)]
+    con_layers = [(5,9),(10,25),(20,11),(5,11)]
     fcl_layers = [1000,600,600,600,600,600,600]
     print("adding model param " + str(new_model))
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
@@ -65,7 +65,7 @@ def add_manually(run_params,dir_path):
         'MS': 'False',
         'dropout': 'False'
     }
-    con_layers = [(5,9),(10,25)(20,19),(20,11)]
+    con_layers = [(5,9),(10,25),(20,19),(20,11)]
     fcl_layers = [1000,600,600,600,600,600,600]
     print("adding model param " + str(new_model))
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
