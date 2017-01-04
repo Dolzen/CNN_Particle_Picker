@@ -280,7 +280,7 @@ class CNNcls(object):
         acc = self.print_test_accuracy(self.testing_images1, self.testing_labels1)
         acc2 = self.print_test_accuracy(self.testing_images2, self.testing_labels2)
         # print_test_accuracy(testing_images3, testing_labels3)
-        file = pickle.dump([acc,acc2,tdelta], open(self.save_model_path + 'accuracy.p', "wb"))
+        file = pickle.dump([acc,acc2,tdelta], open(self.save_model_path + 'training_stats.p', "wb"))
         self.session.close()
 
 
