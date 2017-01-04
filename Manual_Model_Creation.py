@@ -8,7 +8,7 @@ def add_manually(run_params,dir_path):
     #To create multiple models cut the code bewlo
     #M1
     #COPY FROM HERE
-    
+
     #M1
     new_model = {
 
@@ -20,7 +20,8 @@ def add_manually(run_params,dir_path):
         'batch_size': '100',
         'test_size': '500',
         'num_iters': '5000',
-        'MS': 'True'
+        'MS': 'True',
+        'dropout': 'False'
 
     }
     con_layers = [(5,9),(5,25)]
@@ -29,7 +30,7 @@ def add_manually(run_params,dir_path):
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
     run_params.append(new_model)
     # TO HERE
-    
+
     #M2
     new_model = {
 
@@ -41,8 +42,8 @@ def add_manually(run_params,dir_path):
         'batch_size': '100',
         'test_size': '500',
         'num_iters': '5000',
-        'MS': 'True'
-
+        'MS': 'True',
+        'dropout': 'False'
     }
     con_layers = [(5,9),(5,25)]
     fcl_layers = [1000,600]
@@ -61,15 +62,15 @@ def add_manually(run_params,dir_path):
         'batch_size': '100',
         'test_size': '500',
         'num_iters': '5000',
-        'MS': 'True'
-
+        'MS': 'True',
+        'dropout': 'False'
     }
     con_layers = [(5,9),(5,25),(11,11)]
     fcl_layers = [1000,600]
     print("adding model param " + str(new_model))
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
     run_params.append(new_model)
-   
+
     
     #End
     input("Press Enter to continue")
