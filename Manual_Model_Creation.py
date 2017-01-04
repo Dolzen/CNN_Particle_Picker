@@ -20,11 +20,11 @@ def add_manually(run_params,dir_path):
         'batch_size': '100',
         'test_size': '500',
         'num_iters': '5000',
-        'MS': 'True',
-        'dropout': 'False'
+        'MS': 'False',
+        'dropout': 'True'
 
     }
-    con_layers = [(5,9),(5,25)]
+    con_layers = [(5,9),(10,25)(20,11),(5,11)]
     fcl_layers = [1000,600]
     print("adding model param " + str(new_model))
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
@@ -38,14 +38,14 @@ def add_manually(run_params,dir_path):
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
         'name': 'test2',
-        'box_size': "240",
+        'box_size': "60",
         'batch_size': '100',
         'test_size': '500',
         'num_iters': '5000',
         'MS': 'True',
-        'dropout': 'False'
+        'dropout': 'True'
     }
-    con_layers = [(5,9),(5,25)]
+    con_layers = [(5,9),(9,25)]
     fcl_layers = [1000,600]
     print("adding model param " + str(new_model))
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
@@ -58,19 +58,37 @@ def add_manually(run_params,dir_path):
         'Image_Dataset_Path': str(dir_path) + "/Images",
         'Build_Directory': str(dir_path),
         'name': 'test3',
-        'box_size': "120",
+        'box_size': "60",
         'batch_size': '100',
         'test_size': '500',
         'num_iters': '5000',
-        'MS': 'True',
+        'MS': 'False',
         'dropout': 'False'
     }
-    con_layers = [(5,9),(5,25),(11,11)]
+    con_layers = [(5,9),(9,25)]
     fcl_layers = [1000,600]
     print("adding model param " + str(new_model))
     new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
     run_params.append(new_model)
+#   #M4
+    new_model = {
 
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test3',
+        'box_size': "60",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True',
+        'dropout': 'True'
+    }
+    con_layers = [(5,9),(9,25)]
+    fcl_layers = [1000,600,600,600]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers,fcl_params=fcl_layers)
+    run_params.append(new_model)
     
     #End
     input("Press Enter to continue")
