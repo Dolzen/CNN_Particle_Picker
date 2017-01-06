@@ -283,8 +283,13 @@ class CNNcls(object):
         acc = self.print_test_accuracy(self.testing_images1, self.testing_labels1)
         acc2 = self.print_test_accuracy(self.testing_images2, self.testing_labels2)
         # print_test_accuracy(testing_images3, testing_labels3)
-        file = pickle.dump([acc,acc2,tdelta], open(self.save_model_path + 'accuracy.p', "wb"))
-        self.session.close()
+        thelist = [acc,acc2,tdelta,self.model_settings_for_saving]
+        file = pickle.dump(thelist, open(self.save_model_path + 'accuracy.p', "wb"))
+        thefile = open(self.save_model_path+'stats.txt', 'w')
+        for item in thelist:
+            thefile.write("%s\n" % item)
+            
+        thefile.close        self.session.close()
 
 
     def run_batch(self):  # ensure you have defined global variables num_iters and files_training and batch_size
