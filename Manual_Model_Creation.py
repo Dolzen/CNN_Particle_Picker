@@ -1,9 +1,424 @@
+def add_manually(run_params,dir_path):
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test1',
+        'box_size': "60",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'False',
+        'dropout': 'False'
+
+    }
+    con_layers = [(5, 9), (11, 11), (21, 11)]
+    fcl_layers = [1000, 600]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+    # TO HERE
+
+    # M2
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test2',
+        'box_size': "60",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'False',
+        'dropout': 'False'
+    }
+    con_layers = [(5, 9), (5, 25)]
+    fcl_layers = [1000, 600, 500, 500, 500, 500, 500, 500]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test3',
+        'box_size': "60",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'False',
+        'dropout': 'False'
+    }
+    con_layers = [(30, 9), (25, 25), (5, 11)]
+    fcl_layers = [1000, 600, 100]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    # M1
+    # 60 by 60 tests
+
+    # M1
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test4',
+        'box_size': "60",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True',
+        'dropout': 'True'
+
+    }
+    con_layers = [(5, 9), (11, 11), (21, 11)]
+    fcl_layers = [1000, 600]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+    # TO HERE
+
+    # M2
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test5',
+        'box_size': "60",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True',
+        'dropout': 'True'
+    }
+    con_layers = [(5, 9), (5, 25)]
+    fcl_layers = [1000, 600, 500, 500, 500, 500, 500, 500]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test6',
+        'box_size': "60",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True',
+        'dropout': 'True'
+    }
+    con_layers = [(30, 9), (25, 25), (5, 11)]
+    fcl_layers = [1000, 600, 100]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
 
 
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test7',
+        'box_size': "60",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True',
+        'dropout': 'True'
+    }
+    con_layers = [(30, 9),(30,4)]
+    fcl_layers = [3000, 2000, 1000,1000]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test8',
+        'box_size': "60",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True',
+        'dropout': 'True'
+    }
+    con_layers = [(30, 4),(5,9),(10,9)]
+    fcl_layers = [3000, 2000, 1000,1000]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test9',
+        'box_size': "60",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'False',
+        'dropout': 'True'
+    }
+    con_layers = [(30, 4),(5,9),(10,9)]
+    fcl_layers = [3000, 2000, 1000,1000]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test10',
+        'box_size': "60",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'False',
+        'dropout': 'True'
+    }
+    con_layers = [(5, 4),(10,9),(11,15)]
+    fcl_layers = [3000, 2000, 1000,1000]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
 
 
-#### Add multiple models using this function
-Manual_Model_Creation.py
+    # M1
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test11',
+        'box_size': "120",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'False',
+        'dropout': 'False'
+
+    }
+    con_layers = [(5, 9), (11, 11), (21, 11)]
+    fcl_layers = [1000, 600]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+    # TO HERE
+
+    # M2
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test12',
+        'box_size': "120",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'False',
+        'dropout': 'False'
+    }
+    con_layers = [(5, 9), (5, 25)]
+    fcl_layers = [1000, 600, 500, 500, 500, 500, 500, 500]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test13',
+        'box_size': "120",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'False',
+        'dropout': 'False'
+    }
+    con_layers = [(30, 9), (25, 25), (5, 11)]
+    fcl_layers = [1000, 600, 100]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    # M1
+    # 60 by 60 tests
+
+    # M1
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test14',
+        'box_size': "120",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True',
+        'dropout': 'True'
+
+    }
+    con_layers = [(5, 9), (11, 11), (21, 11)]
+    fcl_layers = [1000, 600]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+    # TO HERE
+
+    # M2
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test15',
+        'box_size': "120",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True',
+        'dropout': 'True'
+    }
+    con_layers = [(5, 9), (5, 25)]
+    fcl_layers = [1000, 600, 500, 500, 500, 500, 500, 500]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test16',
+        'box_size': "120",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True',
+        'dropout': 'True'
+    }
+    con_layers = [(30, 9), (25, 25), (5, 11)]
+    fcl_layers = [1000, 600, 100]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test17',
+        'box_size': "120",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True',
+        'dropout': 'True'
+    }
+    con_layers = [(30, 9),(30,4)]
+    fcl_layers = [3000, 2000, 1000,1000]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test18',
+        'box_size': "120",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'True',
+        'dropout': 'True'
+    }
+    con_layers = [(30, 4),(5,9),(10,9)]
+    fcl_layers = [3000, 2000, 1000,1000]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test19',
+        'box_size': "120",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'False',
+        'dropout': 'True'
+    }
+    con_layers = [(30, 4),(5,9),(10,9)]
+    fcl_layers = [3000, 2000, 1000,1000]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+    #   #M3
+    new_model = {
+
+        # New Directory notation
+        'Image_Dataset_Path': str(dir_path) + "/Images",
+        'Build_Directory': str(dir_path),
+        'name': 'test20',
+        'box_size': "120",
+        'batch_size': '100',
+        'test_size': '500',
+        'num_iters': '5000',
+        'MS': 'False',
+        'dropout': 'True'
+    }
+    con_layers = [(5, 4),(10,9),(11,15)]
+    fcl_layers = [3000, 2000, 1000,1000]
+    print("adding model param " + str(new_model))
+    new_model['layers'] = create_layers(con_params=con_layers, fcl_params=fcl_layers)
+    run_params.append(new_model)
+
+
+    #End
+    input("Press Enter to continue")
+    return run_params
 
 
 def create_layers(con_params=[],fcl_params=[]):
