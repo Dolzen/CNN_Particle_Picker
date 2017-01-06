@@ -288,8 +288,8 @@ class CNNcls(object):
         thefile = open(self.save_model_path+'stats.txt', 'w')
         for item in thelist:
             thefile.write("%s\n" % item)
-            
-        thefile.close        self.session.close()
+        thefile.close    
+        self.session.close()
 
 
     def run_batch(self):  # ensure you have defined global variables num_iters and files_training and batch_size
