@@ -34,9 +34,14 @@ def main():
     tile_size = 100  # Change to adjust size of area predicted at once
     num_tiles = 100  # number of tiles we're going to pick
     threshold = 0.8  # Probability threshold, if cls_pred > threshold we will pick that tile as a good candidate
-    base_model_path = '/Users/neddann/Dociments/MarkModel'
-    scaled_model_path = '/Users/neddann/Dociments/MarkModel'
-    base_micrograph_path = '/Users/neddann/Downloads/Data/Test'
+    
+    model_name = 'CNN_T_test1'
+
+
+    base_model_path = dir_path + '/trained_models/' + model_name
+    scaled_model_path = base_model_path
+    base_micrograph_path = dir_path + '/Images/micrographs'
+
 
     print("Sliding Window Tile Particle Picker, by Ed")
 
