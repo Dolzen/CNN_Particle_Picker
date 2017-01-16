@@ -285,6 +285,7 @@ class CNNcls(object):
         # print_test_accuracy(testing_images3, testing_labels3)
         thelist = [acc,acc2,tdelta,self.model_settings_for_saving]
         file = pickle.dump(thelist, open(self.save_model_path + 'accuracy.p', "wb"))
+        nameing = 'CNN_T_Res'+ str(res) +'_iters' +str(num_iters) + '_acc'+str(accuracy)+'_CV1'+str(num_filters1)+'_CN2'+str(num_filters2)+'_FCL1'+str(full_con_size1)+'_FCL2'+str(full_con_size2)
         thefile = open(self.save_model_path+'stats.txt', 'w')
         for item in thelist:
             thefile.write("%s\n" % item)
